@@ -13,8 +13,11 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
+    return function greaterThan(x) {
+        return (x > base);
+
+    }
+
     
     
     // YOUR CODE ABOVE HERE //
@@ -27,7 +30,10 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    return function lessThan(x) {
+        return (x < base);
+
+    }
     
     
     
@@ -41,7 +47,9 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
+    return function charOne(str) {
+        if (startsWith === str[0])
+       }
     
     
     
