@@ -47,11 +47,11 @@ function createLessThanFilter(base) {
  */
 function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    return function charOne(str) {
-        if (startsWith === str[0])
-       }
+    var charOne = function(str) {
+        return (str[0].toLowerCase() === startsWith.toLowerCase())
+    }
     
-    
+    return charOne
     
     // YOUR CODE ABOVE HERE //
 }
@@ -63,7 +63,11 @@ function createStartsWithFilter(startsWith) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
+    var charLast = function(str) {
+        return ((str[str.length - 1]).toLowerCase() === endsWith.toLowerCase())
+    }
     
+    return charLast   
     
     
     

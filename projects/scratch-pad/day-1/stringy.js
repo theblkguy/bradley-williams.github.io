@@ -78,9 +78,11 @@ return string.split(" ").join("-").toLowerCase()
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    string.toLowerCase()
-    char.toLowerCase()
-    return string[0] === char
+    if (string[0].toLowerCase() === char.toLowerCase()){
+        return true
+    } else {
+        return false
+    }
   
     // YOUR CODE ABOVE HERE //
 }
@@ -99,11 +101,11 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-    if (string[string.length-1] === char) {
-        return true;
-      }else{
-        return false;
-      }
+    if (string[string.length - 1].toLowerCase() === char.toLowerCase()) {
+        return true
+    } else {
+        return false
+    }
 
     // YOUR CODE ABOVE HERE //
 }    
