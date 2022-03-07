@@ -2,6 +2,8 @@
 
 'use strict';
 
+const { bindAll } = require("lodash");
+
 /**
  * 4: Contact List
  * 
@@ -65,9 +67,24 @@ function makeContactList() {
                }
 
            }
-       }
+       },
+       removeContact: function(contact) {
+           for (var i = 0; i < contacts.length; i++){
+               if(contacts[i] === contact) {
+                   contacts.splice(i, 1);
+               }
+           }
+       },
+       printAllContactNames: function(){
+        var allNames = []
+        for (var i = 0; i < contacts.length; i++){
+            allNames.push(contacts[i].nameFirst + ' ' + contacts[i].nameLast)
+        }
+        return allNames.join('\n')
+       }         
     }
 }
+
 
 
 

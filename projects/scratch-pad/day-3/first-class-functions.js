@@ -83,8 +83,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
+    var newStr = [] 
+    for (var i = 0; i < strings.length; i++) {
+        newStr.push(modify(strings[i]));
+    }
+    return newStr;  
     
     
     // YOUR CODE ABOVE HERE //
@@ -100,10 +103,13 @@ function modifyStrings(strings, modify) {
  * TIP: You need to loop over the Strings, right? And pass them to the test?
  */
 function allStringsPass(strings, test) {
-    // YOUR CODE BELOW HERE //
-    
-    
-    
+var result = true;
+for (var i = 0; i < strings.length; i++) {
+    if (test(strings[i]) !== true) {
+        result = false;
+    }
+}
+    return result
     
     // YOUR CODE ABOVE HERE //
 }

@@ -9,28 +9,62 @@
  * and read every instruction carefully.
  */
 
+
 //////////////////////////////////////////////////////////////////////
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+  //Initialize a function search() that takes an animals array and "str" as parameters  
+    function search(animals, str) {
+        var result = null;
+        for (var i = 0; i < animals.length; i++) {
+            if (animals[i].name === str) {
+                result = animals[i];
+            }
+        }
+        return result;
+    }
 
 
-
-//////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 // Step 2 - Replace //////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+function replace(animals, name, replacement) {
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === name) {
+            animals[i] = replacement;
+        }
+    }
+}
 
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
+function remove(animals,name){
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === name) {
+            animals.splice(animals[i])
+        }
+    }
+}
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
+function add(animals, animal) { // initializing add function with animals (array) and animals (object) parameters
+    var counter = 0;
+// using for-loop, checking that animal object has name and species properties that are both longer than 0
+for (var i = 0; i < animals.length; i++){
+    if (animal.name === animals[i].name) { // if the name already exists counter = 1
+        counter = 1;
+    } 
+}
+if (counter === 0 &&  animal.name.length > 0 && animal.species.length > 0) {
+    animals.push(animal)
+}
+}
 
 
 /**
