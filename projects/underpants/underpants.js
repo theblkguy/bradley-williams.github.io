@@ -144,8 +144,14 @@ _.last = function (array, number) {
 */
 
 _.indexOf = function (array, value) {
-    
+    for (var i = 0; i <= array.length; i++){
+        if (array[i] === value) {
+            return i
+        }
+    }
+    return -1
 }
+
 
 
 
@@ -164,6 +170,15 @@ _.indexOf = function (array, value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value){
+    if (value === undefined || value === null) {
+        return false
+    }
+    for (var i = 0; i < array.length; i++) {
+        return array[i] == value ? true : false;
+    }
+}
+
 
 /** _.each
 * Arguments:
@@ -181,6 +196,11 @@ _.indexOf = function (array, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
+_.each = function(collection, func){
+    if(Array.isArray(collection) === true){
+        return func(element, i, collection);
+        }
+    }
 
 /** _.unique
 * Arguments:
