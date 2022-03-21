@@ -2,8 +2,21 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(x, y, z) {
+  let output = []
+  if (z === undefined){
+    // if x less than y
+      // create a counting sequence starting at x and ending at y (ascending)
+        // push the current value of i into output
+      // else x not less than y
+        // create a counting sequence starting at x and ending at y (descending)
+          //push the current value of i into output
+  } else { // else z been inputted
+    // if z < 0
+      // return output
+    // if x greater than y
+      // create ascending
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -18,7 +31,8 @@ function sum() {
 // reverseArray ////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArray() {
+function reverseArray() { //should produce no side effects
+  //return a reversed copy of the input array
 
 }
 
@@ -26,7 +40,8 @@ function reverseArray() {
 // reverseArrayInPlace /////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function reverseArrayInPlace() {
+function reverseArrayInPlace() { // should alter input array to a reversed version of it
+  // directly mutate the inpute array into a reversed version of itself
 
 }
 
@@ -34,16 +49,29 @@ function reverseArrayInPlace() {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+  // create a variable called rest
+  let rest = null;
+  // create a for loop that iterates through array backwards
+  for(var i = array.length - 1; i >= 0; i--) {
+    // reassign rest to an object with a ket of value equal to the current array item and a rest
+    // equal to the current key of rest
+    rest = {value: array[i], rest: rest};
+  }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(obj, output=[]) {
+  // base
+  if (obj.rest === null) {
+    output.push(obj.value);
+    return output
+  }
+  //recursion
+  output.push(obj.value);
+  return listToArray(obj.rest, output);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,8 +94,27 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
+function deepEqual(x, y){
+  //determine if both x and y are NOT objects
+  if(typeof x !== 'object' && typeof y !== 'object'){
+    return x === y;
+  }
+  // determine if either x or y is not an object
+  if(typeof x !== 'object' || typeof y !== 'object'){
+    return false;
+  }
+  let xKeys = Object.keys(x);
+  let yKeys = Object.keys(y);
 
+  if(xKeys.length !== yKeys.length){
+    return false
+  }
+  for(let i = 0; i < xKeys.length; i++) {
+    if (!yKeys.includes(xKeys[i]) || !deepEqual(x[xKeys[i]], y[xKeys[i]])){
+      return false
+    }
+  }
+  return true
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -45,16 +45,34 @@ var sumBelow = function(n) {
   //base
   if (n === 0) {
     return 0;
-  } else if (n > 0){
+  } 
+  if (n > 0){
     return n + sumBelow(n - 1) - 1
   } else if (n < 0) {
-    return n + sumBelow(-n) 
+    return n + 1 + sumBelow(n + 1)
   }
 }
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
-};
+  var nums = []
+  //base
+  if (x + 1 === y){
+    return nums
+  } 
+  if (x === y + 1) {
+    return nums
+  }
+  if (x < y) {
+    nums.push(++x)
+    return nums.concat(range(x, y))
+  } else if (x > y){
+    nums.push(--x)
+    return nums.concat(range(x,y))
+  }
+  return nums
+}
+
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
